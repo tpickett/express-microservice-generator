@@ -1,0 +1,76 @@
+{
+	"torch": {
+		"http://accounts": {
+			"__domain": {
+				"auth": {
+					"auth": {"bearer": "[0]"}
+				}
+			},
+			"/accounts": {
+				"__path": {
+					"alias": "accounts"
+				}
+			}
+		},
+		"http://users": {
+			"__domain": {
+				"auth": {
+					"auth": {"bearer": "[0]"}
+				}
+			},
+			"/users": {
+				"__path": {
+					"alias": "users"
+				}
+			}
+		},
+		"http://jobs": {
+			"__domain": {
+				"auth": {
+					"auth": {"bearer": "[0]"}
+				}
+			},
+			"/jobs": {
+				"__path": {
+					"alias": "jobs"
+				}
+			}
+		},
+		"http://widgets": {
+			"__domain": {
+				"auth": {
+					"auth": {"bearer": "[0]"}
+				}
+			},
+			"/widgets": {
+				"__path": {
+					"alias": "widgets"
+				}
+			}
+		},
+		"http://queue": {
+			"__domain": {
+				"auth": {
+					"auth": {"bearer": "[0]"}
+				}
+			},
+			"/queue": {
+				"__path": {
+					"alias": "queue"
+				}
+			}
+		},
+		"http://analytics": {
+			"__domain": {
+				"auth": {
+					"auth": {"bearer": "[0]"}
+				}
+			},
+			"/analytics": {
+				"__path": {
+					"alias": "analytics"
+				}
+			}
+		}
+	}
+}

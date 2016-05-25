@@ -1,0 +1,23 @@
+{
+  "name": "generator-express-microservice-generator",
+  "version": "0.0.0",
+  "description": "Express Microservice in a box",
+  "homepage": "",
+  "author": {
+    "name": "Griffith T. Pickett",
+    "email": "pickett65@gmail.com",
+    "url": ""
+  },
+  "files": [
+    "generators"
+  ],
+  "main": "generators/index.js",
+  "keywords": [
+    ""
+  ],
+  "dependencies": {
+    "chalk": "^1.1.1",
+    "yeoman-generator": "^0.22.5",
+    "yosay": "^1.1.0"
+  }
+}

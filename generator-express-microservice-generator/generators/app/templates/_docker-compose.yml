@@ -1,0 +1,51 @@
+"<%= kebabName %>":
+  environment:
+    HTTP_PORT: '80'
+    <% if (mongo) { %>MONGO_URL: "mongodb://mongo:27017"<% } %>
+    <% if (redis) { %>REDIS_HOST: "redis"<% } %>
+    <% if (redis) { %>REDIS_PORT: "6379"<% } %>
+    <% if (postgres) { %>POSTGRES_HOST: "postgres"<% } %>
+    <% if (postgres) { %>POSTGRES_PORT: "5432"<% } %>
+  build: ./
+  volumes:
+    - './service:/usr/local/src/<%= kebabName %>'
+  ports:
+    - '8081:80'<% if (dataSource) { %>
+  links:
+    - 'cache:'
+    - 'communications:service-comms'
+    <% if (mongo) { %>- 'mongo:'<% } %>
+    <% if (redis) { %>- 'redis:'<% } %>
+    <% if (mysql) { %>- 'mysql:'<% } %>
+    <% if (postgres) { %>- 'postgres:'<% } %>
+    <% if (etcd) { %>- 'etcd:'<% } %><% } %><% if (dataSource) { %>
+cache:
+  image: redis
+"communications":
+  image: redis
+<% if (redis) { %>redis:
+  ports:
+  - 6379:6379/tcp
+  command:
+  - redis-server
+  - /usr/local/etc/redis/redis.conf
+  image: redis
+  volumes:
+  - /usr/local/src/<%= kebabName %>/config/redis.conf:/usr/local/etc/redis/redis.conf<% } %>
+<% if (mongo) { %>mongo:
+  ports:
+  - 27019:27017/tcp
+  image: mongo<% } %>
+<% if (etcd) { %>etcd:
+  command:
+  - -name etcd0
+  image: elcolio/etcd<% } %>
+<% if (postgres) { %>postgres:
+  ports:
+  - 5432:5432/tcp
+  image: postgres<% } %>
+<% if (mysql) { %>mysql:
+  ports:
+  - 3306:3306/tcp
+  image: mariadb<% } %>
+<% } %>
