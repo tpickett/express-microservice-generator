@@ -1,4 +1,4 @@
-# generator-express-microservice-generator [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# generator-express-microservice-generator
 > Express Microservice in a box
 
 ## Installation
@@ -8,6 +8,14 @@ First, install [Yeoman](http://yeoman.io) and generator-express-microservice-gen
 ```bash
 npm install -g yo
 npm install -g generator-express-microservice-generator
+```
+
+If npm can't find the express microservice generator then clone and link the project directly:
+
+```bash
+git clone git@github.com:tpickett/express-microservice-generator.git
+cd express-microservice-generator/generator-express-microservice-generator
+npm link
 ```
 
 Then generate your new project:
