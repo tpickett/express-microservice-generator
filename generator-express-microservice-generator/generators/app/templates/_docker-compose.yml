@@ -8,7 +8,10 @@
     <% if (postgres) { %>POSTGRES_PORT: "5432"<% } %>
   build: ./
   volumes:
-    - './service:/usr/local/src/<%= kebabName %>'
+    - './service/config:/usr/local/src/<%= kebabName %>/service/config'
+    - './service/routes:/usr/local/src/<%= kebabName %>/service/routes'
+    - './service/package.json:/usr/local/src/<%= kebabName %>/service/package.json'
+    - './service/server.js:/usr/local/src/<%= kebabName %>/service/server.js'
   ports:
     - '8081:80'<% if (dataSource) { %>
   links:
