@@ -75,6 +75,10 @@ module.exports = yeoman.generators.Base.extend({
 
   baseApp: function(){
     this.copy(".gitignore", `${_.kebabCase(this.props.microserviceName)}/.gitignore`);
+    this.copy("_service/grunt/aliases.yaml", `${_.kebabCase(this.props.microserviceName)}/service/grunt/aliases.yaml`);
+    this.copy("_service/grunt/concurrent.js", `${_.kebabCase(this.props.microserviceName)}/service/grunt/concurrent.js`);
+    this.copy("_service/grunt/nodemon.js", `${_.kebabCase(this.props.microserviceName)}/service/grunt/nodemon.js`);
+    this.copy("_service/Gruntfile.js", `${_.kebabCase(this.props.microserviceName)}/service/Gruntfile.js`);
     this.copy("_service/config/winston.config.js", `${_.kebabCase(this.props.microserviceName)}/service/config/winston.config.js`);
     this.template("_docker-compose.yml", `${_.kebabCase(this.props.microserviceName)}/docker-compose.yml`, {kebabName: _.kebabCase(this.props.microserviceName), camelName: _.camelCase(this.props.microserviceName), snakeName:_.snakeCase(this.props.microserviceName), dataSource: this.props.includeDataSource, mongo: _.find(this.props.dataSources, source=>source == "Mongo"), redis: _.find(this.props.dataSources, source=>source == "Redis"), etcd:_.find(this.props.dataSources, source=>source == "Etcd"), postgres:_.find(this.props.dataSources, source=>source == "Postgres"), mysql:_.find(this.props.dataSources, source=>source == "MySql")});
     this.template("_Dockerfile", `${_.kebabCase(this.props.microserviceName)}/Dockerfile`, {kebabName: _.kebabCase(this.props.microserviceName), camelName: _.camelCase(this.props.microserviceName), snakeName:_.snakeCase(this.props.microserviceName).toUpperCase(), dataSource: this.props.includeDataSource, author: this.props.author, authorEmail:this.props.authorEmail});
