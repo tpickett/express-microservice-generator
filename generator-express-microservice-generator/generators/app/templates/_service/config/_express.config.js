@@ -28,7 +28,7 @@ class ExpressConfig{
                     })
                 )
             )
-            .then( this.Express.use(
+            .then( () => this.Express.use(
                     expressWinston.logger({
                         winstonInstance: winston,
                         meta: true, // optional: control whether you want to log the meta data about the request (default to true)

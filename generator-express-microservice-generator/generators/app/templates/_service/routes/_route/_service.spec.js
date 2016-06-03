@@ -70,13 +70,13 @@ suite('<%= microserviceName %>', function () {
 
     suite('unit tests', () => {
         test('should be able to create <%= microserviceName %>', function () {
-            var <%= microserviceName %> = waterline.collections.<%= microserviceName %>;
+            var <%= microserviceName %> = waterline.collections['<%= microserviceName %>'];
 
             return <%= microserviceName %>.create({
-                <%= microserviceName %>_name: <%= microserviceName %>_name
+                '<%= microserviceName %>_name': <%= microserviceName %>_name
             })
             .then(function (doc) {
-                assert.equal(doc.<%= microserviceName %>_name, <%= microserviceName %>_name, 'should have set <%= microserviceName %> name');
+                assert.equal(doc['<%= microserviceName %>_name'], <%= microserviceName %>_name, 'should have set <%= microserviceName %> name');
             });
         });
     });

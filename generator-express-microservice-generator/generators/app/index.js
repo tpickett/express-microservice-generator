@@ -78,6 +78,7 @@ module.exports = yeoman.generators.Base.extend({
     this.copy(".jshintrc", `${_.kebabCase(this.props.microserviceName)}/.jshintrc`);
     this.copy("_service/_Gruntfile.js", `${_.kebabCase(this.props.microserviceName)}/service/Gruntfile.js`);
     this.copy("_service/grunt/aliases.yaml", `${_.kebabCase(this.props.microserviceName)}/service/grunt/aliases.yaml`);
+    this.copy("_service/grunt/mocha_istanbul.js", `${_.kebabCase(this.props.microserviceName)}/service/grunt/mocha_istanbul.js`);
     this.copy("_service/grunt/concurrent.js", `${_.kebabCase(this.props.microserviceName)}/service/grunt/concurrent.js`);
     this.copy("_service/grunt/nodemon.js", `${_.kebabCase(this.props.microserviceName)}/service/grunt/nodemon.js`);
     this.copy("_service/_Gruntfile.js", `${_.kebabCase(this.props.microserviceName)}/service/Gruntfile.js`);
