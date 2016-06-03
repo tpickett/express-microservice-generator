@@ -9,10 +9,11 @@ ENV <%= snakeName %>_APP_PATH "/usr/local/src/<%= kebabName %>"
 #--- NODEJS, NPM, GIT and make directories for the application
 RUN	apt-get update && apt-get install -y software-properties-common curl build-essential gcc make python-dev libkrb5-dev git-core && \
     curl --silent --location https://deb.nodesource.com/setup_5.x | sudo -E bash - && \
-    apt-get install --yes nodejs
+    apt-get install --yes nodejs && \
+    npm install -g grunt-cli
 
 ADD ./scripts/startup.sh /usr/local/src/startup.sh
-RUN chmod +x /usr/local/src/startup.sh 
+RUN chmod +x /usr/local/src/startup.sh
 
 # Add the production application
 ADD ./service ${<%= snakeName %>_APP_PATH}
@@ -22,7 +23,9 @@ RUN npm install
 
 # Install production dependencies and clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
 # Application will be available at the following ports
 EXPOSE 80
+
 # Run this command when the container starts
 CMD ["/bin/bash", "/usr/local/src/startup.sh"]
